@@ -1,16 +1,13 @@
 #!/usr/bin/env bash
+# This script stops the 4-to_infinity_and_beyond process.
 
-# Start the 4-to_infinity_and_beyond script in the background
-./4-to_infinity_and_beyond &
+# Find the process ID (PID) of 4-to_infinity_and_beyond and terminate it
+pid=$(ps aux | grep "4-to_infinity_and_beyond" | grep -v grep | awk '{print $2}')
 
-# Save the PID of the background process
-background_pid=$!
-
-# Display a message to indicate that the process is running
-echo "Process is running with PID: $background_pid"
-
-# Run indefinitely to prevent the script from terminating immediately
-while true; do
-    sleep 1
-done
+if [ -n "$pid" ]; then
+    echo "Terminating process with PID: $pid"
+    kill -15 "$pid"
+else
+    echo "Process 4-to_infinity_and_beyond not found"
+fi
 
