@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Start the 4-to_infinity_and_beyond script in the background
+./4-to_infinity_and_beyond &
+
+# Save the PID of the background process
+background_pid=$!
+
+# Display a message to indicate that the process is running
+echo "Process is running with PID: $background_pid"
+
+# Run indefinitely to prevent the script from terminating immediately
+while true; do
+    sleep 1
+done
+

@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#running process
+ps aux --forest
